@@ -1,26 +1,105 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --radius: 0.625rem;
+    
+    /* ✅ 수정 1: 기본 배경색을 우리가 정한 Main Black(#0B0D10)으로 변경 */
+    /* 기존 oklch 값을 지우고 Hex 코드를 넣어도 잘 작동합니다. */
+    --background: #0B0D10; 
+    --foreground: #FFFFFF; /* 글자는 흰색 */
+    
+    /* 카드 배경 등은 Navy 색상(#1C2541)과 비슷하게 조정 */
+    --card: #1C2541;
+    --card-foreground: #FFFFFF;
+    
+    --popover: #1C2541;
+    --popover-foreground: #FFFFFF;
+    
+    --primary: #4B5D73; /* Muted Blue를 프라이머리로 */
+    --primary-foreground: #FFFFFF;
+    
+    --secondary: #1C2541;
+    --secondary-foreground: #FFFFFF;
+    
+    --muted: #1C2541;
+    --muted-foreground: #4B5D73;
+    
+    --accent: #1C2541;
+    --accent-foreground: #FFFFFF;
+    
+    --destructive: oklch(0.704 0.191 22.216);
+    --destructive-foreground: oklch(0.985 0 0);
+
+    --border: rgba(255, 255, 255, 0.1); /* 테두리는 흰색의 10% 투명도 */
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: #4B5D73;
+
+    --sidebar: #1C2541;
+    --sidebar-foreground: #FFFFFF;
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+    --sidebar-ring: #4B5D73;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* 배경색과 글자색 기본값 적용 */
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ✅ 수정 2: 젤리 스크롤바 색상을 Muted Blue(#4B5D73) 계열로 변경 */
+/* #4B5D73의 RGB 값은 대략 75, 93, 115 입니다. */
+.jelly-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 93, 115, 0.5) transparent;
+}
+
+.jelly-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.jelly-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.jelly-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  
+  /* 그라데이션: Muted Blue -> 투명한 흰색 */
+  background: linear-gradient(
+    180deg,
+    rgba(75, 93, 115, 0.6), 
+    rgba(255, 255, 255, 0.1)
+  );
+  
+  /* 그림자: Navy 계열로 은은하게 */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.10) inset,
+    0 0 18px rgba(28, 37, 65, 0.5); /* Navy 그림자 */
+}
+
+/* 마우스 올렸을 때(Hover) 조금 더 진하게 */
+.jelly-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(75, 93, 115, 0.9),
+    rgba(255, 255, 255, 0.2)
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+    0 0 24px rgba(75, 93, 115, 0.5);
+}
+
+.jelly-scroll::-webkit-scrollbar-corner {
+  background: transparent;
 }
