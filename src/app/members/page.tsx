@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; 
 import { getMembers } from "@/data/members"; // ✅ DB Fetch 함수
 import MemberCarousel from "@/components/pages/MemberCarousel"; // ✅ 위에서 수정한 컴포넌트
 
