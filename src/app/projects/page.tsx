@@ -1,5 +1,6 @@
 import { getProjects } from "@/data/projects";
 import ProjectList from "@/components/pages/ProjectList";
+import { Suspense } from "react";
 import { motion } from "framer-motion"; // 서버 컴포넌트라 직접 애니메이션 못 줌
 
 export default async function ProjectsPage() {
@@ -14,8 +15,9 @@ export default async function ProjectsPage() {
             CaTs 멤버들이 함께 고민하고 만들어낸 결과물들을 소개합니다.
           </p>
       </section>
-
-      <ProjectList projects={projects} />
+      <Suspense fallback={<div>프로젝트를 불러오는 중입니다...</div>}>
+        <ProjectList projects={projects} />
+      </Suspense>
     </main>
   );
 }
