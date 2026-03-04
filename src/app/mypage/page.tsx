@@ -1,5 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic"; 
 
 import { useState, useEffect, useRef, useMemo, ChangeEvent } from "react";
 import { createClient } from "@/lib/supabase/client";
@@ -251,7 +250,8 @@ export default function MyPage() {
         setOriginalImageUrl(finalImageUrl);
         setImageFile(null);
         setProfile({ ...profile, full_name: fullName, phone: finalPhone, gender, birth_date: birthDate, status, major: finalMajor, email: finalEmail, interests: selectedInterests, bio, image_url: finalImageUrl || null });
-        router.refresh();
+        router.push("/");
+;
 
     } catch (error: any) {
         alert(UI_TEXT.ERRORS.SAVE_FAILED + " (" + error.message + ")");
