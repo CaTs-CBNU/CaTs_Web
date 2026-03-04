@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; 
+
 import { getProjects } from "@/data/projects";
 import ProjectList from "@/components/pages/ProjectList";
 import { Suspense } from "react";

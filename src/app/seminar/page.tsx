@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; 
+
 import { getPosts } from "@/data/posts"; // ✅ DB Fetch 함수
 import SeminarList from "@/components/pages/SeminarList"; // ✅ 위에서 만든 UI 컴포넌트
 

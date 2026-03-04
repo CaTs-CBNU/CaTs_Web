@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; 
+
 import { getPerformances } from "@/data/performance";
 import PerformanceList from "@/components/pages/PerformanceList";
 

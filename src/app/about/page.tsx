@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; 
+
 import { getHistoryRoadmap } from "@/data/history";
 import { getProjects } from "@/data/projects";
 import { getMembers } from "@/data/members";

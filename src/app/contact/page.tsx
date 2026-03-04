@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic"; 
+
 import Image from "next/image";
 import { Mail, MapPin, Building2 } from "lucide-react";
 import MotionWrapper from "@/components/MotionWrapper"; // ✅ MotionWrapper 적용

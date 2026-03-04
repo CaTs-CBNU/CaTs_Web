@@ -1,4 +1,5 @@
 // src/app/page.tsx (또는 src/app/home/page.tsx)
+export const dynamic = "force-dynamic"; 
 
 import { getSchedules } from "@/data/schedule";
 import { getProjects } from "@/data/projects";
